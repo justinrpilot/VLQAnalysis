@@ -1,0 +1,10 @@
+universe = vanilla
+Executable=analyze.sh
+Should_Transfer_Files = YES
+WhenToTransferOutput  = ON_EXIT
+Transfer_Input_Files = csv_rwt_fit_hf_2016_01_28.root,csv_rwt_fit_lf_2016_01_28.root,getCSV.py,JECfiles.tar,best_sf.py,vlq_fwlite_6bin_DATA.py,vlq_fwlite_6bin.py,thisfile.txt,BEST_mlp.pkl,BEST_scaler.pkl,BEST_mlp_6bin.pkl,BEST_scaler_6bin.pkl,getJECUnc.py 
+notify_user = pilot@FNAL.GOV
+Output = condor_out_$(Process)_$(Cluster).stdout
+Error  = condor_out_$(Process)_$(Cluster).stderr
+Log    = condor_out_$(Process)_$(Cluster).log
+Notification    = Never
