@@ -1,0 +1,500 @@
+lr ClosurePDFs/
+exit
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/ClosureTestFiles/`; do xrdcp -f ${file} ClosurePDFs/; done; 
+exit
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep HT`; do echo ${file}; done; 
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep HT`; do xrdcp -f ${file} .; done; 
+eosls /store/user/pilot/
+exit
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep binhisto`; do echo ${file}; done; 
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep binhisto`; do xrdcp -f  ${file}; done; 
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep binhisto`; do xrdcp -f ${file} .; done; 
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep HT`; do xrdcp -f ${file} .; done; 
+exit
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep histos`; do echo ${file} ; done; 
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep _histos`; do echo ${file} ; done; 
+exit
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep b_histos`; do echo ${file} ; done; 
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep b_histos`; do xrdcp -f ${file} .; done; 
+lr *histos.root
+lr *b_histos.root
+hadd -f TT_6binBEST_incl.root *b_histos.root
+cp TT_6binBEST_incl.root ~/data/ThetaSL6/theta/BEST_VLQ/.
+exit
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep b_histos`; do xrdcp -f ${file} .; done; 
+exit
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep b_histos`; do xrdcp -f ${file} .; done; 
+exit
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep b_histos`; do xrdcp -f ${file} .; done; 
+exit
+exit
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep b_histos`; do xrdcp -f ${file} .; done; 
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep b_binhistos`; do xrdcp -f ${file} .; done; 
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep HT | grep b_log.pdf`; do xrdcp -f ${file} .; done; 
+eit
+exit
+for sig in narrowZ wideZ exwideZ rskkg; do for chan in ljets dilep; do ../utils2/theta-auto.py bayesianlimits.py --${chan} --${sig}; done; done;
+exit
+exit
+for sig in narrowZ wideZ exwideZ rskkg; do for chan in had ljets dilep; do ../utils2/theta-auto.py bayesianlimits.py --${chan} --${sig}; done; done;
+for sig in narrowZ wideZ exwideZ rskkg; do ../utils2/theta-auto.py bayesianlimits.py --${chan} --had --ljets --dilep; done;
+exit
+for sig in narrowZ wideZ exwideZ rskkg; do for chan in had ljets dilep; do ../utils2/theta-auto.py bayesianlimits.py --${chan} --${sig}; done; done;
+exit
+for sig in narrowZ wideZ exwideZ rskkg; do for chan in had ljets dilep; do ../utils2/theta-auto.py bayesianlimits.py --${chan} --${sig}; done; done;
+exit
+for cat in btag0 btag1 btag2 btag3 btag4 btag5; do python trimFile.py newhadfile_Christine.root file_had_${cat}.root ${cat}; done
+exit
+for file in `ls mtt2017*btag*.steer`; do ./bin/Plots -f ${file}; done
+exit
+cd allhad/
+for file in `ls *.eps`; do epstopdf ${file}; done
+exit
+for file in `ls mtt2017_ljets_*`; do ./bin/Plots -f ${file}; done
+exit
+for file in `ls mtt2017_ljets_*`; do ./bin/Plots -f ${file}; done
+exit
+exit
+for file in `ls mtt2017_dilep_*`; do ./bin/Plots -f ${file}; done
+exit
+cd dilep/
+for file in `ls *.eps`; do epstopdf ${file}; done
+lr
+exit
+for file in `ls mtt2017_dilep_*`; do ./bin/Plots -f ${file}; done
+cd dilep/
+for file in `ls *.eps`; do epstopdf ${file}; done
+exit
+for file in `ls mtt2017_ljets_*`; do ./bin/Plots -f ${file}; done
+for file in `ls mtt2017_had_*`; do ./bin/Plots -f ${file}; done
+cd allhad/
+for file in `ls *.eps`; do epstopdf ${file}; done
+cd ../ljets/
+for file in `ls *.eps`; do epstopdf ${file}; done
+exit
+for file in `ls mtt2017_ljets_*`; do ./bin/Plots -f ${file}; done
+exit
+for file in `ls mtt2017_ljets_*`; do ./bin/Plots -f ${file}; done
+for file in `ls mtt2017_had_*`; do ./bin/Plots -f ${file}; done
+exit
+for file in `ls mtt2017_dilep_*`; do ./bin/Plots -f ${file}; done
+exit
+for file in `ls mtt2017_ljets_*`; do ./bin/Plots -f ${file}; done
+for file in `ls mtt2017_had_*`; do ./bin/Plots -f ${file}; done
+cd allhad/
+for file in `ls *.eps`; do epstopdf ${file}; done
+cd ../ljets/
+for file in `ls *.eps`; do epstopdf ${file}; done
+cd ../dilep/
+for file in `ls *.eps`; do epstopdf ${file}; done
+exit
+exit
+for file in `ls crab_Q*.py`; do crab submit -c ${file}; done
+exit
+exit
+vi crab_700.py 
+for i in 900 1000 1100 1200 1300 1400 1500 1600 1700 1800; do sed -i 's/800/${i}/' crab_${i}.py; done
+vi crab_1800.py 
+exit
+for file in `ls crab_*00.py`; do crab submit -c ${file}; done
+exit
+for dir in `ls -d crab*`; do echo ${dir}; crab -report -d ${dir} | grep "Number of events read" | awk '{print $5 }'; done
+for dir in `ls -d crab*`; do echo ${dir}; crab report -d ${dir} | grep "Number of events read" | awk '{print $5 }'; done
+exit
+vi ~/.bash_history 
+exit
+for file in `xrdfsls -u /store/user/pilot/VLQAnaFiles/HT*.pdf`; do echo ${file}; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/HT*.pdf`; do echo ${file}; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "HT" | grep "pdf"`; do echo ${file}; done
+for file in `xrdfs root://cmseos.fnal.gov ls -alrthu /store/user/pilot/VLQAnaFiles/ | grep "HT" | grep "pdf"`; do echo ${file}; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "HT" | grep "pdf"`; do echo ${file}; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "HT" | grep "pdf"`; do xrdcp ${file} .; done
+lr
+exit
+cd 3
+cd 3jetPlots/
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "HT" | grep "pdf"`; do xrdcp ${file} .; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "HT" | grep "pdf"`; do xrdcp -f ${file} .; done
+exit
+exit
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"; do echo ${file}; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file}; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do eos root://cmseos.fnal.gov rm ${file}; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file}; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file}[28:]; done
+exit
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file}; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file} | sed -e "s/root:/\/\/131.255.204.161:1094\//"; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file} | sed -e "s/root:/\//131.255.204.161:1094\//"; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file} | sed -e "s/root:\/\/131.255.204.161:1094\//"; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file} | sed -e "s/root:\/\/131.255.204.161:1094\///"; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file} | sed -e "s/root:\/\/131.255.204.161:1094\// /"; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file} | sed -e "s/root:\/\/131.255.204.161:1094\//"; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file} | sed -e "s/root:\/\/131.255.204.161:1094//"; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file} | sed -e "s/'root://131.255.204.161:1094/'//"; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file} | sed -e "s/'root://131.255.204.161:1094/'//g"; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file}.replace("root", "blah"); done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file} | sed -e "s;root://131.255.204.161:1094/;;"; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file} | sed -e 's;root://131.255.204.161:1094/;;'; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file[28:]}; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file[28]}; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file}; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file[0]}; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file}; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file} | sed -i 's/root/blah/'; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file} | sed -e 's/root/blah/'; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file} | sed -e 's/root//'; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file} | sed -e 's/root://'; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file} | sed -e 's/root:\/\///'; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file} | sed -e 's/root:\/\/131.225.204.161:1094//'; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo ${file} | sed -e 's/root:\/\/131.225.204.161:1094\///'; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do echo `echo ${file} | sed -e 's/root:\/\/131.225.204.161:1094\///'`; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaFiles/ | grep "binhistos"`; do eos root://cmseos.fnal.gov rm `echo ${file} | sed -e 's/root:\/\/131.225.204.161:1094\///'`; done
+exit
+vi ~/.bash_history 
+for sig in narrowZ wideZ exwideZ rskkg; do for chan in had ljets dilep; do ../utils2/theta-auto.py bayesianlimits.py --${chan} --${sig}; done; done;
+for chan in wideZ exwideZ rskkg; do ../utils2/theta-auto.py bayesianlimits.py --${chan} --had --ljets --dilep; done;
+exit
+for file in `ls *.eps`; do epstopdf ${file}; done
+cd ../ljets/
+rm *.pdf
+for file in `ls *.eps`; do epstopdf ${file}; done
+cd ../dilep/
+rm *.pdf
+for file in `ls *.eps`; do epstopdf ${file}; done
+exit
+for file in `ls mtt2017_ljets_*`; do ./bin/Plots -f ${file}; done
+cd ljets/
+rm *.pdg
+rm *.pdf
+for file in `ls *.eps`; do epstopdf ${file}; done
+exit
+cd ljets/
+rm *.pdf
+for file in `ls *.eps`; do epstopdf ${file}; done
+exit
+for chan in wideZ exwideZ rskkg; do ../utils2/theta-auto.py bayesianlimits.py --${chan} --had --ljets --dilep; done;
+for sig in narrowZ wideZ exwideZ rskkg; do for chan in had ljets dilep; do ../utils2/theta-auto.py bayesianlimits.py --${chan} --${sig}; done; done;
+exit
+for file in `ls mtt2017_ljets_*`; do ./bin/Plots -f ${file}; done
+cd ljets/
+rm *.pdf
+for file in `ls *.eps`; do epstopdf ${file}; done
+exit
+for file in `ls crab_*00.py`; do crab submit -c ${file}; done
+exit
+for mass in 700 800 900 1000 1100 1200 1300 1400 1500 1600 1700 1800; do ./submit.sh files_${mass}.txt vlq${mass}; done
+for mass in 700 800 900 1000 1100 1200 1300 1400 1500 1600 1700 1800; do ./submit.sh files_vlq${mass}.txt vlq${mass}; done
+exit
+for dir in `ls -d crab*`; do echo ${dir}; crab report -d ${dir} | grep "Number of events read" | awk '{print $5 }'; done
+exit
+"5.0+4.5" | bc
+echo "5.0+4.5" | bc
+exit
+exit
+chmod u+x submitAllDDQCD*
+for file in `ls submitAllDDQCD_0*`; do ./${file}; done
+condor_q
+lr
+less condor_out_0_276470.stderr
+vi analyze.sh 
+vi analyze_ddQCD.sh 
+vi makeBinHistogram.C 
+vi makeThetaTemplates.C 
+exit
+for mass in qcd2 qcd3 qcd4 qcd5 qcd6 qcd7 qcd8 qcd9; do ./submit.sh ${mass}.txt ${mass}; done
+exit
+for file in run_*.py; do ../utils2/theta-auto.py ${file}; done
+kill %1
+lr
+exit
+for file in `ls submitAllDDQCD_0*`; do ./${file}; done
+condor_q
+condor_q
+condor_q
+condor_q
+condor_q
+exit
+for file in run_*.py; do ../utils2/theta-auto.py ${file}; done
+kill %1
+vi run.py 
+exit
+for file in run_*.py; do ../utils2/theta-auto.py ${file}; done
+exit
+for dir in `ls -d run_*`; do for file in `ls ${dir}/*.cfg`; do echo ${file}; done; done
+for dir in `ls -d run_*/`; do for file in `ls ${dir}/*.cfg`; do echo ${file}; done; done
+for dir in `ls -d run_*/`; do for file in `ls ${dir}/*.cfg`; do echo ${file} > submit_files.txt; done; done
+cat submit_files.txt 
+for dir in `ls -d run_*/`; do for file in `ls ${dir}/*.cfg`; do echo ${file} >! submit_files.txt; done; done
+rm submit_files.txt 
+for dir in `ls -d run_*/`; do for file in `ls ${dir}/*.cfg`; do echo ${file} >! submit_files.txt; done; done
+lr
+rm \! 
+ls
+lr
+for dir in `ls -d run_*/`; do for file in `ls ${dir}/*.cfg`; do echo ${file} >& submit_files.txt; done; done
+lr
+vi submit_files.txt 
+for dir in `ls -d run_*/`; do for file in `ls ${dir}/*.cfg`; do echo ${file} &> submit_files.txt; done; done
+wc -l submit_files.txt 
+rm submit_files.txt 
+lr
+for dir in `ls -d run_*/`; do for file in `ls ${dir}/*.cfg`; do echo ${file}; done; done
+vi submit_files.tt
+vi submit_files.txt
+./submit.sh submit_files.txt
+condor_rm 166096
+lr
+rm condor_out_0_166096.log 
+vi submit_template.cmd 
+cd run_1.0tZ_0.0bW_0.0tH
+ls
+for file in `ls *.cfg`; do echo ${file} > submit.txt; ../submit.sh submit.txt; done;
+vi submit.txt 
+vi ../submit.sh 
+vi ../submit_template.cmd 
+for file in `ls *.cfg`; do echo ${file} > submit.txt; ../submit.sh submit.txt; done;
+vi submit.sh
+vi ../submit.sh 
+vi ../submit_template.cmd 
+for file in `ls *.cfg`; do echo ${file} > submit.txt; ../submit.sh submit.txt; done;
+ls
+condor_q
+condor_q
+condor_q
+lr
+less condor_out_0_166124.log
+condor rm 166121
+condor rm 166122
+condor rm 166123
+condor rm 166124
+condor rm 166125
+condor rm 166126
+condor rm 166127
+condor rm 166128
+condor rm 166129
+condor rm 166130
+condor_rm 166131
+condor rm 166132
+condor_q
+condor_q
+condor_rm 166121
+condor_rm 166122
+condor_rm 166123
+condor_rm 166124
+condor_rm 166125
+condor_rm 166126
+condor_rm 166127
+condor_rm 166128
+condor_rm 166129
+condor_rm 166130
+condor_rm 166131
+condor_rm 166132
+condor_q
+vi ../submit_template.cmd 
+for file in `ls *.cfg`; do echo ${file} > submit.txt; ../submit.sh submit.txt; done;
+condor_q
+condor_q
+condor_q
+condor_q
+condor_q
+condor_q
+condor_q
+condor_q
+condor_q
+lr
+cd ..
+for dir in `ls -d run_*/`; do cd ${dir}; for file in `ls *.cfg`; do echo ${file} > submit.txt; ../submit.sh submit.txt; done; done;
+ls
+condor_q
+condor_rm 
+condor_rm pilot
+condor_q
+cd ..
+for dir in `ls -d run_*/`; do cd ${dir}; for file in `ls *.cfg`; do echo ${file}; done; done;
+cd ..
+for dir in `ls -d run_*/`; do cd ${dir}; for file in `ls *.cfg`; do echo ${file}; cd ..; done; done;
+ls
+cd -
+exit
+for dir in `ls -d run_*/`; do cd ${dir}; for file in `ls *.cfg`; do echo ${file}; done; cd ..;done;
+for dir in `ls -d run_*/`; do echo ${dir}; cd ${dir}; for file in `ls *.cfg`; do echo ${file}; done; cd ..;done;
+for dir in `ls -d run_*/`; do echo ${dir}; cd ${dir}; for file in `ls *.cfg`; do echo ${file} > submit.txt; ../submit.sh submit.txt; done; cd ..;done;
+condor_q
+ls
+cd run_0.2tZ_0.2bW_0.6tH
+ls
+exit
+for file in `ls *.pdf`; do echo "\includegraphics[width=0.24\textwidth]{ ${file} }"; done
+for file in `ls *.pdf`; do echo "\includegraphics[width=0.24\textwidth]{ systplots/${file} }"; done
+for file in `ls 0t*.pdf`; do echo "\includegraphics[width=0.24\textwidth]{ systplots/${file} }"; done
+for file in `ls 0t_0W*.pdf`; do echo "\includegraphics[width=0.24\textwidth]{ systplots/${file} }"; done
+exit
+for dir in `ls -d run_*/`; do echo ${dir}; cd ${dir}; mkdir cache; cp *.cfg *.db cache/.; cd ..; done;
+exit
+for file in `ls run_*.py`; do ../utils2/theta-auto.py ${file}; done
+exit
+exit
+for file in `ls mtt2017*.steer`; do ./bin/Plots -f ${file}; done
+cd allhad/
+lr
+for file in `ls *.eps`; do epstopdf ${file}; done
+cd ../ljets/
+for file in `ls *.eps`; do epstopdf ${file}; done
+cd ../dilep/
+for file in `ls *.eps`; do epstopdf ${file}; done
+exit
+cd allhad/
+rm *.pdf
+for file in `ls *.eps`; do epstopdf ${file}; done
+cd ../dilep/
+for file in `ls *.eps`; do epstopdf ${file}; done
+rm *.pdf
+for file in `ls *.eps`; do epstopdf ${file}; done
+cd ../ljets/
+rm *.pdf
+for file in `ls *.eps`; do epstopdf ${file}; done
+exit
+for file in `ls mtt2017*.steer`; do ./bin/Plots -f ${file}; done
+for file in `ls mtt2017*.steer`; do ./bin/Plots -f ${file}; done
+exit
+cd allhad/
+for file in `ls *.eps`; do epstopdf ${file}; done
+rm *.pdf
+for file in `ls *.eps`; do epstopdf ${file}; done
+cd ../ljets//
+rm *.pdf
+for file in `ls *.eps`; do epstopdf ${file}; done
+cd ../dilep/
+cd ..
+exit
+rm *.pdf
+for file in `ls *.eps`; do epstopdf ${file}; done
+exit
+ls
+for file in `ls mtt2017_dilep*.steer`; do ./bin/Plots -f ${file}; done
+cd dilep/
+rm *.pdf
+for file in `ls *.eps`; do epstopdf ${file}; done
+exit
+exit
+for file in `ls mtt2017_dilep*.steer`; do ./bin/Plots -f ${file}; done
+cd dilep/
+rm *.pdf
+for file in `ls *.eps`; do epstopdf ${file}; done
+exit
+for file in `ls mtt2017_dilep*.steer`; do ./bin/Plots -f ${file}; done
+cd dilep/
+rm *.pdf
+for file in `ls *.eps`; do epstopdf ${file}; done
+display dilep_Main_eenb.pdf 
+exit
+for file in `ls mtt2017_dilep*.steer`; do ./bin/Plots -f ${file}; done
+cd dilep/
+rm *.pdf
+for file in `ls *.eps`; do epstopdf ${file}; done
+lr
+display dilep_Main_eenb.pdf 
+exit
+for file in `ls mtt2017_dilep*.steer`; do ./bin/Plots -f ${file}; done
+cd diil
+cd dilep/
+rm *.pdf
+for file in `ls *.eps`; do epstopdf ${file}; done
+lr
+display dilep_Main_eenb.pdf 
+exit
+for file in `ls mtt2017_allhad*.steer`; do ./bin/Plots -f ${file}; done
+for file in `ls mtt2017_had*.steer`; do ./bin/Plots -f ${file}; done
+cd allhad/
+rm *.pdf
+for file in `ls *.eps`; do epstopdf ${file}; done
+display allhad_Main_btag0.pdf 
+cd ..
+for file in `ls mtt2017_ljet*.steer`; do ./bin/Plots -f ${file}; done
+cd ljets/
+rm *.pdf
+for file in `ls *.eps`; do epstopdf ${file}; done
+cd ..
+exit
+for era in B C D E F G H Hv3; do crab kill -d crab_SingleMuon${era}/crab_ttbarAC_SingleMuon${era}; done
+exit
+for dir in B C D E F G H Hv3; do crab resubmit -d crab_SingleMuon${dir}/crab_ttbarAC_SingleMuon${dir}; done
+exit
+for dir in B C D E F G H Hv3; do crab resubmit -d crab_SingleMuon${dir}/crab_ttbarAC_SingleMuon${dir}; done
+for file in `ls crab_DATA_2016*.py`; do crab submit -c ${file}; done
+exit
+for file in `ls crab_DATA_2016*.py`; do crab submit -c ${file}; done
+vi crab_DATA_2016H2.py
+crab submit -c crab_DATA_2016H2.py
+exit
+for dir in `ls NNoutputs/crab_2016*_trees`; do crab resubmit -d ${dir}; done
+kill %1
+for dir in `ls NNoutputs/crab_2016*_trees/`; do crab resubmit -d ${dir}; done
+ls NNoutputs/
+ls -alrth NNoutputs/
+for era in B C D E F G H H2; do crab resubmit -d NNoutputs/crab_2016${era}_trees; done
+exit
+exit
+exit
+for i in 1 2 3 4; do hadd -f sf${i}_templates.root pass${i}_histos.root fail${i}_histos.root; done
+for i in 1 2 3 4; do hadd -f sfW${i}_templates.root passW${i}_histos.root failW${i}_histos.root; done
+exit
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/ClosureTestFiles/`; do xrdcp root://cmseos.fnal.gov/${file} .; done;
+vi do_hadd.sh 
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/ClosureTestFiles/`; do echo ${file}; done;
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/ClosureTestFiles/`; do xrdcp ${file} .; done;
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/ClosureTestFiles/`; do xrdcp -f ${file} .; done;
+exit
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaMay/ | grep "HT" | grep "pdf" | grep "log"`; do xrdcp -f ${file} .; done;
+lr
+exit
+for file in `ls crab_*00.py`; do crab submit -c ${file}; done
+rm -r NNoutputs/crab_TT_*
+for file in `ls crab_*00.py`; do crab submit -c ${file}; done
+exit
+for dir in `ls -d NNoutputs/crab*`; do crab kill -d NNoutputs/${dir}; done
+for dir in `ls -d NNoutputs/crab*`; do crab kill -d ${dir}; done
+exit
+for file in `ls crab_*00.py`; do crab submit -c ${file}; done
+exit
+for file in `ls crab_SM*.py`; do crab submit -c ${file}; done
+lr
+exit
+for i in 800 900 1000 1100 1200 1300 1400 1500 1600 1700 1800; do ./submit.sh files_vlq${i}.txt vlq${i}; done
+condor_q
+condor_q
+condor_q
+condor_q
+condor_q
+ls files_*.txt
+vi analyze.sh 
+for i in WW WZ ZZ ttW ttZ 4top wjets zjets; do ./submit.sh files_${i}.txt ${i}; done
+condor_q
+exit
+for i in WW WZ ZZ ttW ttZ 4top wjets zjets; do ./do_hadd.sh ${i}; done
+condor_q
+condor_q
+condor_q
+condor_q
+condor_q
+condor_q
+condor_q
+condor_q
+condor_q
+condor_q
+exit
+for i in 800 900 1000 1100 1200 1300 1400 1500 1600 1700 1800 700; do ./do_hadd.sh vlq${i}; done
+exit
+for i in WW WZ ZZ ttW ttZ 4top wjets zjets; do ./submit.sh files_${i}.txt ${i}; done
+vi analyze.sh
+vi analyze.sh
+condor_q
+condor_q
+condor_q
+for i in 800 900 1000 1100 1200 1300 1400 1500 1600 1700 1800 700; do ./submit.sh files_vlq${i}.txt vlq${i}; done
+exit
+vi do_hadd.sh 
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/ClosureTestFiles/ | grep "pdf"`; do xrdcp ${file} ~/3DayLifetime/.; done
+for file in `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaMay/ | grep "HT" | grep "pdf"`; do xrdcp ${file} ~/3DayLifetime/.; done
+exit

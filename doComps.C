@@ -1,0 +1,59 @@
+{
+/*drawDataComps("jetPt_j0", "jetPt_j0 > 1000", 50,0,2000);
+drawDataComps("jetEta_j0", "jetPt_j0 > 1000", 50,-3,3);
+drawDataComps("jetPhi_j0", "jetPt_j0 > 1000", 50,-4,4);
+drawDataComps("jetSDmass_j0", "jetPt_j0 > 1000", 50,0,300);
+
+
+drawDataComps("prob_t_j0", "jetPt_j0 > 1000", 25,0,1);
+drawDataComps("prob_j_j0", "jetPt_j0 > 1000", 25,0,1);
+drawDataComps("prob_b_j0", "jetPt_j0 > 1000", 25,0,1);
+drawDataComps("prob_W_j0", "jetPt_j0 > 1000", 25,0,1);
+drawDataComps("prob_Z_j0", "jetPt_j0 > 1000", 25,0,1);
+drawDataComps("prob_H_j0", "jetPt_j0 > 1000", 25,0,1);
+drawDataComps("best_class_j0", "jetPt_j0 > 1000", 6,0,6);
+*/
+drawDataComps("BESTinputs[0]", "Jet m_{SD} [GeV]", "jetPt > 1000", 50, 0, 300, "BESTin_sdmass", "BESTin_sdmass");
+drawDataComps("BESTinputs[1]", "Jet #tau_{32} [GeV]", "jetPt > 1000", 50, 0,1, "BESTin_tau32", "BESTin_tau32");
+drawDataComps("BESTinputs[2]", "Jet #tau_{21} [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_tau21", "BESTin_tau21");
+drawDataComps("BESTinputs[3]", "Jet FW Moment 1 (Top Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_fwm1_t", "BESTin_fwm1_t");
+drawDataComps("BESTinputs[4]", "Jet FW Moment 2 (Top Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_fwm2_t", "BESTin_fwm2_t");
+drawDataComps("BESTinputs[5]", "Jet FW Moment 3 (Top Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_fwm3_t", "BESTin_fwm3_t");
+drawDataComps("BESTinputs[6]", "Jet FW Moment 4 (Top Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_fwm4_t", "BESTin_fwm4_t");
+drawDataComps("BESTinputs[7]", "Isotropy (Top Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_isotropy_t", "BESTin_isotropy_t");
+drawDataComps("BESTinputs[8]", "Aplanarity (Top Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_aplanarity_t", "BESTin_aplanarity_t");
+drawDataComps("BESTinputs[9]", "Sphericity (Top Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_sphericity_t", "BESTin_sphericity_t");
+drawDataComps("BESTinputs[10]", "Thrust (Top Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_thrust_t", "BESTin_thrust_t");
+drawDataComps("BESTinputs[11]", "Jet FW Moment 1 (W Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_fwm1_W", "BESTin_fwm1_W");
+drawDataComps("BESTinputs[12]", "Jet FW Moment 2 (W Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_fwm2_W", "BESTin_fwm2_W");
+drawDataComps("BESTinputs[13]", "Jet FW Moment 3 (W Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_fwm3_W", "BESTin_fwm3_W");
+drawDataComps("BESTinputs[14]", "Jet FW Moment 4 (W Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_fwm4_W", "BESTin_fwm4_W");
+drawDataComps("BESTinputs[15]", "Isotropy (W Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_isotropy_W", "BESTin_isotropy_W");
+drawDataComps("BESTinputs[16]", "Aplanarity (W Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_aplanarity_W", "BESTin_aplanarity_W");
+drawDataComps("BESTinputs[17]", "Sphericity (W Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_sphericity_W", "BESTin_sphericity_W");
+drawDataComps("BESTinputs[18]", "Thrust (W Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_thrust_W", "BESTin_thrust_W");
+drawDataComps("BESTinputs[19]", "Jet FW Moment 1 (Z Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_fwm1_Z", "BESTin_fwm1_Z");
+drawDataComps("BESTinputs[20]", "Jet FW Moment 2 (Z Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_fwm2_Z", "BESTin_fwm2_Z");
+drawDataComps("BESTinputs[21]", "Jet FW Moment 3 (Z Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_fwm3_Z", "BESTin_fwm3_Z");
+drawDataComps("BESTinputs[22]", "Jet FW Moment 4 (Z Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_fwm4_Z", "BESTin_fwm4_Z");
+drawDataComps("BESTinputs[23]", "Isotropy (Z Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_isotropy_Z", "BESTin_isotropy_Z");
+drawDataComps("BESTinputs[24]", "Aplanarity (Z Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_aplanarity_Z", "BESTin_aplanarity_Z");
+drawDataComps("BESTinputs[25]", "Sphericity (Z Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_sphericity_Z", "BESTin_sphericity_Z");
+drawDataComps("BESTinputs[26]", "Thrust (Z Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_thrust_Z", "BESTin_thrust_Z");
+drawDataComps("BESTinputs[27]", "Jet FW Moment 1 (H Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_fwm1_H", "BESTin_fwm1_H");
+drawDataComps("BESTinputs[28]", "Jet FW Moment 2 (H Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_fwm2_H", "BESTin_fwm2_H");
+drawDataComps("BESTinputs[29]", "Jet FW Moment 3 (H Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_fwm3_H", "BESTin_fwm3_H");
+drawDataComps("BESTinputs[30]", "Jet FW Moment 4 (H Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_fwm4_H", "BESTin_fwm4_H");
+drawDataComps("BESTinputs[31]", "Isotropy (H Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_isotropy_H", "BESTin_isotropy_H");
+drawDataComps("BESTinputs[32]", "Aplanarity (H Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_aplanarity_H", "BESTin_aplanarity_H");
+drawDataComps("BESTinputs[33]", "Sphericity (H Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_sphericity_H", "BESTin_sphericity_H");
+drawDataComps("BESTinputs[34]", "Thrust (H Frame) [GeV]", "jetPt > 1000", 50, 0, 1, "BESTin_thrust_H", "BESTin_thrust_H");
+drawDataComps("BESTinputs[35]", "Maximum Subjet CSV", "jetPt > 1000", 50, 0, 1, "BESTin_maxbdisc", "BESTin_maxbdisc");
+drawDataComps("BESTinputs[36]", "Subjet 1 CSV", "jetPt > 1000", 50, 0, 1, "BESTin_bdisc1", "BESTin_q");
+drawDataComps("BESTinputs[37]", "Subjet 2 CSV", "jetPt > 1000", 50, 0, 1, "BESTin_bdisc2", "BESTin_q");
+drawDataComps("BESTinputs[38]", "Jet Charge", "jetPt > 1000", 50, -2, 2, "BESTin_q", "BESTin_q");
+
+
+
+}
+

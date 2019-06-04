@@ -1,0 +1,11 @@
+/store/user/pilot/JetHT/crab_2016H_trees/180502_190521/0000/ana_out_1.root
+/store/user/pilot/JetHT/crab_2016H_trees/180502_190521/0000/ana_out_10.root
+/store/user/pilot/JetHT/crab_2016H_trees/180502_190521/0000/ana_out_11.root
+/store/user/pilot/JetHT/crab_2016H_trees/180502_190521/0000/ana_out_2.root
+/store/user/pilot/JetHT/crab_2016H_trees/180502_190521/0000/ana_out_3.root
+/store/user/pilot/JetHT/crab_2016H_trees/180502_190521/0000/ana_out_4.root
+/store/user/pilot/JetHT/crab_2016H_trees/180502_190521/0000/ana_out_5.root
+/store/user/pilot/JetHT/crab_2016H_trees/180502_190521/0000/ana_out_6.root
+/store/user/pilot/JetHT/crab_2016H_trees/180502_190521/0000/ana_out_7.root
+/store/user/pilot/JetHT/crab_2016H_trees/180502_190521/0000/ana_out_8.root
+/store/user/pilot/JetHT/crab_2016H_trees/180502_190521/0000/ana_out_9.root

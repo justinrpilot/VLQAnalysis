@@ -1,0 +1,10 @@
+universe = vanilla
+Executable=analyzeBB_ddQCD.sh
+Should_Transfer_Files = YES
+WhenToTransferOutput  = ON_EXIT
+Transfer_Input_Files = CMS_lumi.C, CMS_lumi.h, makeBinHistogram.C, makeThetaTemplatesBB_genUp.C, makeThetaTemplatesBB_genDn.C, makeThetaTemplatesBB.C, makeThetaTemplatesBB_jecUp.C, makeThetaTemplatesBB_jecDn.C, makeThetaTemplatesBB_jerUp.C, makeThetaTemplatesBB_jerDn.C, makeThetaTemplatesBB_pdfUp.C, makeThetaTemplatesBB_pdfDn.C, makeThetaTemplatesBB_q2Up.C, makeThetaTemplatesBB_q2Dn.C, makeThetaTemplatesBB_pileupUp.C, makeThetaTemplatesBB_pileupDn.C, applyRates.C, BEST_rates_DATA_6bin.root, data_bkgEst.C, jetPt_templates.root, makeThetaTemplatesBB_csvUp.C, makeThetaTemplatesBB_csvDn.C
+notify_user = pilot@FNAL.GOV
+Output = condor_out_$(Process)_$(Cluster).stdout
+Error  = condor_out_$(Process)_$(Cluster).stderr
+Log    = condor_out_$(Process)_$(Cluster).log
+Notification    = Never

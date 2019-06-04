@@ -1,0 +1,1 @@
+/store/user/pilot/ZprimeToWW_narrow_M-3000_13TeV-madgraph/crab_ZPrimeWW_3TeV_trees/170927_184308/0000/ana_out_1.root

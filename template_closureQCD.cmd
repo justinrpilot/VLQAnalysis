@@ -1,0 +1,10 @@
+universe = vanilla
+Executable=analyze_closureQCD.sh
+Should_Transfer_Files = YES
+WhenToTransferOutput  = ON_EXIT
+Transfer_Input_Files = CMS_lumi.C, CMS_lumi.h, makeBinHistogram.C, makeThetaTemplates.C, applyRates.C, BEST_rates_6bin.root, data_bkgEst.C, jetPt_templates.root, makeClosure.C, doClosureTest.C, sampleQCD.C
+notify_user = pilot@FNAL.GOV
+Output = condor_out_$(Process)_$(Cluster).stdout
+Error  = condor_out_$(Process)_$(Cluster).stderr
+Log    = condor_out_$(Process)_$(Cluster).log
+Notification    = Error
