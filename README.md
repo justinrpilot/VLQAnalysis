@@ -102,6 +102,86 @@ This evaluates the ```analyze_closureQCD.sh``` and copies PDF files to the area 
 
 ## Making Theta templates (or other plots)
 
+To run the analysis and produce the final HT templates after the data-driven shapes are produced, a similar procedure is followed.  But this needs to be done once for each category, as well as once for each of the points of the BR scan.
+
+The files ```makeThetaTemplates.C``` and ```makeThetaTemplatesBB.C``` are used here, along with each of the additional files to evaluate the systematic-shifted inputs (**these files could be merged in the future with appropriate options, as they essentially do exactly the same thing with small variations**).  The input files need to be defined in each to point to the hadded files from the earlier step, as well as the name of the ROOT file containing the data-driven shapes.
+
+This is again set up to run on condor.  The files ```submitAllDDQCD_template.sh``` and ```makeSubmits.sh``` are used to generate the files used to submit to condor.  You can run this with 
+```./makeSubmits.sh``` after changing appropriately for running TT/BB (change the template to ```submit_ddQCD.sh``` or ```submitBB_ddQCD.sh``` and run twice).
+
+The lines in ```makeSubmits.sh```
+```
+sed s/"BRTZ BRBW BRTH"/"${tz} ${bw} ${th}"/ submitAllDDQCD_3j_template.sh > submitAllDDQCD3j_${tz}tZ_${bw}bW_${th}tH.sh
+sed s/"BRTZ BRBW BRTH"/"${tz} ${bw} ${th}"/ submitAllDDQCD_template.sh > submitAllDDQCD_${tz}tZ_${bw}bW_${th}tH.sh
+```
+Are used to do the BR-dependent changes, while the lines
+```
+hadd -f ~/3DayLifetime/theta4jet_${tz}tz_${bw}bw_${th}th.root `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaMay/ | grep "theta_" | grep ${tz}tz | grep ${bw}bw | grep ${th}th`
+hadd -f ~/3DayLifetime/thetaBB4jet_${tz}tz_${bw}bw_${th}th.root `xrdfs root://cmseos.fnal.gov ls -u /store/user/pilot/VLQAnaMay/ | grep "thetaBB_" | grep ${tz}tz | grep ${bw}bw | grep ${th}th`
+```
+Are used to merge ROOT files after the first running (see below).  The ```makeSubmits.sh``` script is sort of a general purpose thing to loop over all BR combinations and do some commands and can be changed as you wish.
+
+
+Then you can submit all of the jobs with a simple set of bash scripts:
+```
+for file in `ls submitAllDDQCD_*.sh`; do ./${file}; done
+for file in `ls submitBBAllDDQCD_*.sh`; do ./${file}; done
+```
+
+Again, ```analyze_ddQCD.sh``` (or BB) has the set of commands and input files that are run upon submission.  These should be updated to your personal EOS path.
+
+These jobs will produce ROOT files which can be combined to make the theta input files with ```makeSubmits``` as detailed above.
+
+
 ## Running the limits with Theta
 
+I've copied the latest templates used to produce the limits to EOS at
+```/store/user/pilot/BEST_VLQ_THETA/```
+
+Once the Theta templates are produced, they can be run using scripts/files in the ```THETA``` directory of this repository.
+
+One file is used for each BR combination, for each of BB and TT limit hypotheses.  Again a the ```THETA/makeSubmits.sh``` is used to make changes for each of the combinations, with ```runBB_pre.py``` and ```run_pre.py``` used as templates.  To make the submission files, do:
+```
+./makeSubmits.sh runBB_pre.py runBB
+./makeSubmits.sh runTT_pre.py run
+```
+This produces theta config files for each BR combination.
+
+You can then submit everything to condor:
+* First run theta locally to create the cfg files used to submit to condor:
+```
+for file in `ls run_*tH.py`; do ../utils2/theta-auto.py ${file}; done
+for file in `ls runBB_*tH.py`; do ../utils2/theta-auto.py ${file}; done
+```
+* Then you can submit all of the jobs to condor (it uses ```submit.sh``` and you need to make the Theta gridpack as instructed on the Theta website):
+```
+for dir in `ls -d runBB_*_*tH/`; do echo ${dir}; cd ${dir}; for file in `ls *.cfg`; do echo ${file} > submit.txt; ../submit.sh submit.txt; done; cd ..;done;
+for dir in `ls -d run_*_*tH/`; do echo ${dir}; cd ${dir}; for file in `ls *.cfg`; do echo ${file} > submit.txt; ../submit.sh submit.txt; done; cd ..;done;
+```
+CAREFUL, as this will submit usually few thousand condor jobs to run the limits, which can take several hours each.  Recommend to test with one file first to make sure it's working correctly!
+* When the jobs finish, you should have ```*.db``` files in the individual theta directories.  Next is to copy them to cache so we can run Theta again locally to make the text files with the limit results:
+```
+for dir in `ls -d run*tH/`; do echo ${dir}; cd ${dir}; mkdir cache; for file in `ls *.cfg *.db`; do cp ${file} cache/.; done; cd ..;done;
+for dir in `ls -d runBB*tH/`; do echo ${dir}; cd ${dir}; mkdir cache; for file in `ls *.cfg *.db`; do cp ${file} cache/.; done; cd ..;done;
+```
+* Update the theta files with runTheta=False:
+```
+./makeSubmits.sh runBB_post.py runBB
+./makeSubmits.sh runTT_post.py run
+```
+* Run Theta to make the text files:
+```
+for file in `ls run_*tH.py`; do ../utils2/theta-auto.py ${file}; done
+for file in `ls runBB_*tH.py`; do ../utils2/theta-auto.py ${file}; done
+```
+
+You can then plot the limits with your favorite script!
+
+
 ## Making the plots for the paper
+
+The instructions for the paper plots can be found on the GitLab repository for B2G-18-005, along with inputs and macros.
+
+Other plotting scripts which are outdated but may still be of interest are listed below:
+
+
