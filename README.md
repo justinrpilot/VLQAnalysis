@@ -182,6 +182,18 @@ You can then plot the limits with your favorite script!
 
 The instructions for the paper plots can be found on the GitLab repository for B2G-18-005, along with inputs and macros.
 
-Other plotting scripts which are outdated but may still be of interest are listed below:
+Other plotting scripts which are outdated but may still be of interest are in this repository and could be used and/or modified at your own risk.  Some of the files are described below:
+
+* ```CMS_lumi.C``` -- used to add luminosity labels to ROOT plot outputs
+* ```combineQCD.C``` -- stitches QCD samples together into a single file
+* ```combineRates.C``` -- combines rate measurements from indiviual leading/2nd/3rd/etc jets into an inclusive measurement
+* ```computeWPEff.C``` -- plots working point efficiency for a given selection as function of pT/eta/NPV
+* ```drawBinHist.C``` -- makes the category summary plot
+* ```drawHTplot.C``` -- used to make combined HT plots of categories based on the filenames
+* ```makeANplots.C``` -- driver to make stack plots of BEST input quantities
+* ```makeBinHistogram.C``` -- old script used to fill a single bin with the yields to produce the summary plot later
+* ```makeStack_event.C``` -- stack plotter for event-level quantities
+* ```makeStack_jet.C``` -- stack plotter for jet-level quantities (as from the miniAOD file)
+
 
 
